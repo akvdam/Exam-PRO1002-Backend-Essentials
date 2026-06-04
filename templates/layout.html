@@ -1,10 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="no">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Heia Norge! Den (veldig lange) veien til VM 2026</title>
+    <link rel="stylesheet" href="/static/app.css">
 </head>
 <body>
+    <header>
+        <div class="header-container">
+            <h1>🇳🇴 Drømmen om VM 2026 ⚽</h1>
+            <p>En kort og konsis blogg om Norges vei til mesterskapet.</p>
+        </div>
+    </header>
 
+    <nav>
+        <a href="/">Hjem (Oversikt)</a> |
+        <a href="/posts/new">Skriv et nytt VM-innlegg</a>
+    </nav>
+    <hr>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        <hr>
+        <p>© 2026 Veien til VM Blogg - "Typisk norsk å være god (og litt heldig)!"</p>
+    </footer>
 </body>
 </html>
