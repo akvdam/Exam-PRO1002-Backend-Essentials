@@ -1,0 +1,92 @@
+html {
+    margin: 0 auto;
+    padding: 0;
+    max-width: 700px;
+    background-color: #0d2240;
+    font-family: Georgia, serif;
+    color: #111;
+    height: 100%;
+}
+
+body {
+    background-color: #fafafa;
+    padding: 2em;
+    min-height: 100%;
+    margin: 0;
+    box-shadow: 4px 0px 12px #222, -4px 0px 12px #222;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 1.5em;
+}
+
+header h1 {
+    color: #black;
+    margin-top: 0.3em;
+}
+
+nav {
+    text-align: center;
+    border: thin solid black;
+    border-left: none;
+    border-right: none;
+    margin: 0 0 1em 0;
+    padding: 0.7em 0;
+}
+
+nav a {
+    color: #c10000;
+    text-decoration: none;
+    font-weight: bold;
+    padding-right: 2em;
+    padding-left: 2em;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* Post Summary & Lists */
+.post-summary h3 a {
+    color: #0d2240;
+    text-decoration: none;
+}
+
+.post-summary h3 a:hover {
+    color: #d11919;
+    text-decoration: underline darkred;
+}
+
+hr {
+    border: none;
+    border-top: thin solid darkred; /* Uses your exact layout line style in dark red */
+    margin: 1.5em 0;
+}
+
+.meta-date {
+    font-size: 0.85em;
+    color: #555;
+}
+
+/* Forms & Inputs formatting style */
+input[type="text"], textarea {
+    width: 100%;
+    max-width: 500px;
+    padding: 0.4em;
+    margin-top: 0.3em;
+    border: thin solid #777;
+}
+
+button {
+    background-color: #0d2240;
+    color: white;
+    border: thin solid black;
+    padding: 0.5em 1em;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #d11919;
+}
