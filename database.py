@@ -41,7 +41,8 @@ class BlogDatabase:
 
     def get_comments_for_post(self, post_id):
         cur = self.cursor()
-        cur.execute('SELECT * FROM comments WHERE post_id = ? ORDER BY publication_date DESC', (post_id,))
+        cur.execute('SELECT * FROM comments WHERE post_id = ? ORDER BY publication_date DESC',
+                    (post_id,))
         return cur.fetchall()
 
     def add_comment(self, post_id, title, publication_date, content):
@@ -60,7 +61,8 @@ class BlogDatabase:
 
     def add_tag_to_post(self, post_id, tag_name):
         cur = self.cursor()
-        cur.execute('INSERT OR IGNORE INTO tags (post_id, name) VALUES (?, ?)', (post_id, tag_name.strip()))
+        cur.execute('INSERT OR IGNORE INTO tags (post_id, name) VALUES (?, ?)',
+                    (post_id, tag_name.strip()))
 
     def clear_tags_for_post(self, post_id):
         cur = self.cursor()
