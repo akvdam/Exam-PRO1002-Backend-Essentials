@@ -1,5 +1,5 @@
 # Exam-PRO1002-Backend-Essentials
-This is the exam project for Backend Essentials, which is in the form on a blog web application. 
+This is the exam project for Backend Essentials. The project was to create an interactive web app blog. 
 
 ## Project overview
 This repository includes relevant files, set up and databases for the exam project in Backend Essentials. The main files include python scripts, for both the app and the database, as well as scrips for running tests. It contains SQL and database files, as well as HTML and CSS files, in addition to the basic files like read me, license etc. 
