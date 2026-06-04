@@ -48,6 +48,9 @@ Open terminal, access the project folder and run:
 
 ```python3 app.py```
 
+After running, click on or copy the http-adress to a web browser to display the blog.
+Press CTRL+C to exit the program. 
+
 
 #### Run the tests of the program in terminal
 Open terminal, access the project folder and run one command for testing the app, and another for testing the database setup: 
