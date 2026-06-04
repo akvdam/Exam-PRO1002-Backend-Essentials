@@ -25,7 +25,7 @@ def index():
         p['tags'] = g.db.get_tags_for_post(post['id'])
         posts.append(p)
 
-    response = render_template('home.html', posts=posts)
+    response = render_template('main.html', posts=posts)
     return response
 
 
@@ -108,3 +108,6 @@ def _set_tags(g, id, form):
         for tag in tag_input.split(','):
             if tag.strip():
                 g.db.add_tag_to_post(id, tag.strip())
+
+if __name__ == '__main__':
+    app.run(port=5001, debug=True)
