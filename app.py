@@ -107,7 +107,7 @@ def _set_tags(g, id, form):
     if tag_input:
         for tag in tag_input.split(','):
             if tag.strip():
-                g.db.add_tag_to_post(id, tag.strip())
+                g.db.add_tag_to_post(id, tag.strip().lower())
 
 if __name__ == '__main__':
     app.run(port=5001, debug=True)
