@@ -25,7 +25,7 @@
 <h3>Kommentarer</h3>
 <div class="comments-section">
     {% if not comments %}
-        <p>Ingen kommentarer ennå. Vær den første til å juble (eller trøste)!</p>
+        <p>Ingen kommentarer ennå. Vær den første til å juble (eller trøste)</p>
     {% else %}
         {% for comment in comments %}
         <div class="comment-box" style="border-left: 3px solid #db2725; padding-left: 10px; margin-bottom: 15px;">
@@ -58,5 +58,5 @@
     <button type="submit">Send kommentar </button>
 </form>
 
-<p><a href="/">← Tilbake til forsiden</a></p>
+<p><a href="/">Tilbake til forsiden</a></p>
 {% endblock %}
