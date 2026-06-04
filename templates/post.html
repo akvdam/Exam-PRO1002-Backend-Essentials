@@ -1,10 +1,62 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'layout.html' %}
+{% block content %}
+<article class="full-post">
+    <h2>{{ post.title }}</h2>
+    <p class="meta-date"><em>Publisert: {{ post.publication_date }}</em></p>
+    
+    <div class="post-body">
+        {% for paragraph in post.body.split('\n\n') %}
+            <p>{{ paragraph }}</p>
+        {% endfor %}
+    </div>
 
-</body>
-</html>
+    <p class="post-tags">
+        <strong>Tagger:</strong>
+        {% for tag in post.tags %}
+            <a href="/tags/{{ tag }}">#{{ tag }}</a>
+        {% endfor %}
+    </p>
+
+    <p><a href="/posts/{{ post.id }}/edit" class="edit-button"> Rediger dette innlegget</a></p>
+</article>
+
+<hr>
+
+<h3>Kommentarer</h3>
+<div class="comments-section">
+    {% if not comments %}
+        <p>Ingen kommentarer ennå. Vær den første til å juble (eller trøste)!</p>
+    {% else %}
+        {% for comment in comments %}
+        <div class="comment-box" style="border-left: 3px solid #db2725; padding-left: 10px; margin-bottom: 15px;">
+            <h4>{{ comment.title }}</h4>
+            <p style="font-size: 0.85em; color: #555;"><em>Dato: {{ comment.publication_date }}</em></p>
+            <p>{{ comment.content }}</p>
+        </div>
+        {% endfor %}
+    {% endif %}
+</div>
+
+<hr>
+
+<h3>Legg til en kommentar</h3>
+{% if error %}
+    <p class="error-message" style="color: red; font-weight: bold;"> {{ error }}</p>
+{% endif %}
+
+<form action="/posts/{{ post.id }}" method="POST">
+    <div>
+        <label for="title">Overskrift:</label><br>
+        <input type="text" id="title" name="title" style="width: 100%; max-width: 400px;">
+    </div>
+    <br>
+    <div>
+        <label for="content">Din kommentar:</label><br>
+        <textarea id="content" name="content" rows="4" style="width: 100%; max-width: 600px;"></textarea>
+    </div>
+    <br>
+    <button type="submit">Send kommentar </button>
+</form>
+
+<p><a href="/">← Tilbake til forsiden</a></p>
+{% endblock %}
