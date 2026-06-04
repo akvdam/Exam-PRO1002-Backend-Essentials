@@ -1,10 +1,36 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'layout.html' %}
+{% block content %}
 
-</body>
-</html>
+{% if post.id %}
+    <h2>Rediger VM-innlegg</h2>
+{% else %}
+    <h2>Skriv et nytt VM-innlegg</h2>
+{% endif %}
+
+<form action="/post/save" method="POST">
+    <input type="hidden" name="id" value="{{ post.id if post.id else '' }}">
+
+    <div>
+        <label for="title">Tittel på innlegget:</label><br>
+        <input type="text" id="title" name="title" value="{{ post.title if post.title else '' }}" style="width: 100%; max-width: 500px;" required>
+    </div>
+    <br>
+
+    <div>
+        <label for="body">Innhold:</label><br>
+        <textarea id="body" name="body" rows="10" style="width: 100%; max-width: 700px;" required>{{ post.body if post.body else '' }}</textarea>
+    </div>
+    <br>
+
+    <div>
+        <label for="tags">Tagger (lag flere tagger ved bruk av komma):</label><br>
+        <input type="text" id="tags" name="tags" value="{{ tags_string if tags_string else '' }}" style="width: 100%; max-width: 500px;">
+    </div>
+    <br>
+
+    <button type="submit">Lagre innlegg </button>
+</form>
+
+<p><a href="/"> Avbryt og gå tilbake</a></p>
+
+{% endblock %}
