@@ -1,33 +1,18 @@
 import unittest
-import sqlite3
-from database import BlogDatabase
+from shared_test_setup import BlogTestCase
 
 
-class TestBlogDatabase(unittest.TestCase):
-    def setUp(self):
-
-        self.db = BlogDatabase(':memory:')
-        cur = self.db.cursor()
-        # Create minimal schemas to verify queries against
-        cur.execute('CREATE TABLE posts (id INTEGER PRIMARY KEY, title TEXT, publication_date TEXT, body TEXT)')
-        cur.execute('CREATE TABLE tags (post_id INTEGER, name TEXT)')
-        cur.execute(
-            'CREATE TABLE comments (id INTEGER PRIMARY KEY, post_id INTEGER, title TEXT, publication_date TEXT, content TEXT)')
-
-    def tearDown(self):
-        self.db.close()
-
+class TestBlogDatabase(BlogTestCase):
     def test_add_and_get_post(self):
-        post_id = self.db.add_post("Test Tittel", "2026-06-04", "Dette er testinnhold.")
-        self.assertEqual(post_id, 1)
+        post_id = self.database.add_post("Ny VM Tittel", "2026-06-04", "Innhold tekst.")
 
-        post = self.db.get_post(1)
+        post = self.database.get_post(post_id)
         self.assertIsNotNone(post)
-        self.assertEqual(post['title'], "Test Tittel")
+        self.assertEqual(post['title'], "Ny VM Tittel")
 
     def test_add_tags(self):
-        self.db.add_tag_to_post(1, "taktikk")
-        tags = self.db.get_tags_for_post(1)
+        self.database.add_tag_to_post(1, "taktikk")
+        tags = self.database.get_tags_for_post(1)
         self.assertIn("taktikk", tags)
 
 
