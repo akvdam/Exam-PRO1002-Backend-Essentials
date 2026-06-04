@@ -1,10 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'layout.html' %}
+{% block content %}
+<h2>Innlegg markert med taggen: #{{ tag_name }}</h2>
 
-</body>
-</html>
+<div class="posts-list">
+    {% if not posts %}
+        <p>Det finnes ingen innlegg med denne taggen.</p>
+    {% else %}
+        {% for post in posts %}
+        <article class="post-summary">
+            <h3><a href="/posts/{{ post.id }}">{{ post.title }}</a></h3>
+            <p class="meta-date"><em>Publisert: {{ post.publication_date }}</em></p>
+            <p class="excerpt">{{ post.excerpt }}...</p>
+            <hr>
+        </article>
+        {% endfor %}
+    {% endif %}
+</div>
+
+<p><a href="/">← Tilbake til forsiden</a></p>
+{% endblock %}
