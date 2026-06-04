@@ -7,6 +7,7 @@ This repository includes relevant files, set up and databases for the exam proje
 
 ## Project structure
 
+```text
 ├── static folder
 │ └── app.css
 │ 
@@ -29,7 +30,7 @@ This repository includes relevant files, set up and databases for the exam proje
 ├── read me
 ├── git.ignore
 ├── license
-
+```
 
 ## How to install, run and test the program
 Make sure to have Python installed. 
