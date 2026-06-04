@@ -47,7 +47,6 @@ nav a:hover {
     text-decoration: underline;
 }
 
-/* Post Summary & Lists */
 .post-summary h3 a {
     color: #0d2240;
     text-decoration: none;
@@ -60,7 +59,7 @@ nav a:hover {
 
 hr {
     border: none;
-    border-top: thin solid darkred; /* Uses your exact layout line style in dark red */
+    border-top: thin solid darkred;
     margin: 1.5em 0;
 }
 
@@ -69,7 +68,7 @@ hr {
     color: #555;
 }
 
-/* Forms & Inputs formatting style */
+
 input[type="text"], textarea {
     width: 100%;
     max-width: 500px;
